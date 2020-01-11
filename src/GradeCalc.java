@@ -3,6 +3,8 @@ public class GradeCalc {
 	static String[] letters={"A","A-","B+","B","C","I"};
 	static double[] seventyfiverequirements={3.3,3.3,2.6,2.6,2.2,0};
 	static double[] minRequirement={3,2.5,2.5,0,0,0};
+	
+	public static boolean debugmode=true;
 
 	public static void main(String[] args) {
 		
@@ -36,27 +38,27 @@ public class GradeCalc {
 		System.out.println(output);
 	}
 	
+	/**Calculates and returns the grade letter based on the double array input of grades.
+	 * @param outcomed Array of outcome averages sorted highest to lowest(RTL)
+	 * @return Grade letter for the given class
+	 */
 	public static String getLetter(double[] outcomed){
 		
 		double s75=get75Score(outcomed);
 		double low=getLowestScore(outcomed);
 		int s75letter;
-		for(s75letter =0; s75letter!=5;s75letter++){
-			if(s75>=seventyfiverequirements[s75letter]){
-				break;
-			}
+		for(s75letter =0; s75letter!=5;s75letter++){ // loop the array of requirements for 75% of outcomes, and break at the correct one to set s75letter to the correct position in the array 
+			if(s75>=seventyfiverequirements[s75letter]) break;
 		}
 		int lowletter;
-		for(lowletter =0; lowletter!=5;lowletter++){
-			if(low>=minRequirement[lowletter]){
-				break;
-			}
+		for(lowletter =0; lowletter!=5;lowletter++){// loop the array of requirements for lowest outcome, and break at the correct one to set s75letter to the correct position in the array 
+			if(low>=minRequirement[lowletter]) break;
 		}
-		System.out.println(s75letter);
-		System.out.println(lowletter);
-		if(s75letter<lowletter){
-			return letters[lowletter];
-		}return letters[s75letter];
+		if(debugmode){
+			System.out.println(s75letter);
+			System.out.println(lowletter);
+		}
+		return (s75letter<lowletter) ?  letters[lowletter] :  letters[s75letter] ;
 	}
 	
 	public static double getLowestScore(double[] outcomed){
@@ -67,9 +69,7 @@ public class GradeCalc {
 		int NumRequired=(int) Math.floor(outcomed.length*0.75);
 		double top=10;
 		for(int x=0;x!=NumRequired;x++){
-			if(outcomed[x]<top){
-				top=outcomed[x];
-			}
+			if(outcomed[x]<top) top=outcomed[x];
 		}
 		return top;
 	}

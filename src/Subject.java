@@ -63,7 +63,7 @@ public class Subject {
 	}
 	
 	/**
-	 * Sorts the outcomes lowest to highest 
+	 * Sorts the outcomes lowest to highest (LTR)
 	 */
 	public void sort(){
 		boolean isSorted;
@@ -88,7 +88,7 @@ public class Subject {
 	}
 	
 	/**
-	 *  Sorts the outcomes highest to lowest
+	 *  Sorts the outcomes highest to lowest (LTR)
 	 */
 	public void revSort(){
 		boolean isSorted;
@@ -112,11 +112,20 @@ public class Subject {
 		}while(!isSorted);
 	}
 	
-	/**
+	/**Returns the array of outcomes
 	 * @return Array of outcomes
 	 */
 	public Outcome[] getOutcomeArray(){
 		return outcomes;
+	}
+	
+	/**Set grade weights for the averaging
+	 * @param latestGradeWeight Weight for the latest grade out of 100
+	 * @param oldGradeWeight Weight for all but the latest grade out of 100
+	 */
+	public void setGradeWeights(double oldGradeWeight, double latestGradeWeight){
+		this.latestGradeWeight=latestGradeWeight;
+		this.oldGradeWeight=oldGradeWeight;
 	}
 	
 	public void setLatestGradeWeight(double latestGradeWeight) {
