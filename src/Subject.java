@@ -22,6 +22,17 @@ public class Subject {
 		latestGradeWeight=latestWeight;
 	}
 	
+	public double[] getOutcomeAverages(){
+		double[] potato=new double[outcomes.length];
+		int y=0;
+		for(Outcome x:outcomes){
+			potato[y]=x.getHighestAverage(oldGradeWeight, latestGradeWeight);
+			y++;
+		}
+		
+		return potato;
+	}
+	
 	
 	/**Swaps the positions of 2 outcomes in the array
 	 * @param outcome1Pos Position of the first outcome
@@ -58,6 +69,10 @@ public class Subject {
 		return true;
 	}
 	
+	/**Returns the outcome at the entered position
+	 * @param position Position to return the outcome of.
+	 * @return Requested outcome
+	 */
 	public Outcome getOutcome(int position){
 		return outcomes[position];
 	}

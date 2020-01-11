@@ -1,8 +1,12 @@
+import java.util.Scanner;
+
 public class GradeCalc {
 	
 	static String[] letters={"A","A-","B+","B","C","I"};
 	static double[] seventyfiverequirements={3.3,3.3,2.6,2.6,2.2,0};
 	static double[] minRequirement={3,2.5,2.5,0,0,0};
+	
+	static Scanner input=new Scanner(System.in);
 	
 	public static boolean debugmode=true;
 
@@ -34,9 +38,12 @@ public class GradeCalc {
 		
 		System.out.println();
 		System.out.println(); 	
-		String output=getLetter(new double[] {3.7,3.6,3.4,3.2,3.2,3.2,3.18,3.1,2.6,2.2,2.0,1.75,1.6});
-		System.out.println(output);
+		System.out.println(getLetter(testClass.getOutcomeAverages()));
+//		String output=getLetter(new double[] {3.7,3.6,3.4,3.2,3.2,3.2,3.18,3.1,2.6,2.2,2.0,1.75,1.6});
+//		System.out.println(output);
 	}
+	
+	
 	
 	/**Calculates and returns the grade letter based on the double array input of grades.
 	 * @param outcomed Array of outcome averages sorted highest to lowest(RTL)
