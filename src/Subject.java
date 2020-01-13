@@ -69,6 +69,25 @@ public class Subject {
 		return true;
 	}
 	
+	public boolean addOutcomes(Outcome[] newOutcomes){
+		for(Outcome x:	newOutcomes){
+			this.addOutcome(x);
+		}
+		return true;
+	}
+	
+	public boolean addOutcome(double[] outcomeGrades,String outcomeName){
+		this.addOutcome(new Outcome(outcomeGrades,outcomeName));
+		return true;
+	}
+	
+	public boolean addOutcomes(double[][] outcomeGrades, String[] outcomeNames){
+		for(int x=0; x!=outcomeGrades.length; x++){
+			addOutcome(outcomeGrades[x], outcomeNames[x]);
+		}
+		return true;
+	}
+	
 	/**Returns the outcome at the entered position
 	 * @param position Position to return the outcome of.
 	 * @return Requested outcome

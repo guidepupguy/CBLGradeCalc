@@ -11,23 +11,9 @@ public class GradeCalc {
 	public static boolean debugmode=true;
 
 	public static void main(String[] args) {
-		
-		Outcome testOutcome= new Outcome(new float[] {3,2,1,1},"test");
-		System.out.println(testOutcome.toString());
-		System.out.print("Unweight: ");
-		System.out.println(testOutcome.getUnweightedAverage());
-		System.out.print("Weighted: ");
-		System.out.println(testOutcome.getWeightedAverage(65, 35));
-		System.out.print("Highest: ");
-		System.out.println(testOutcome.getHighestAverage(65, 35)+"\n");
-		
+	
 		Subject testClass=new Subject(35,65);
-		testClass.addOutcome(new Outcome(new float[] {4,4,1,2,4},"Analyze multiple perspectives"));
-		testClass.addOutcome(new Outcome(new float[] {2,2,1,1},"test1"));
-		testClass.addOutcome(new Outcome(new float[] {2,3,4,1},"test2"));
-		testClass.addOutcome(new Outcome(new float[] {3,4,1,1},"test3"));
-		testClass.addOutcome(new Outcome(new float[] {2,2,1,1},"test4"));
-		testClass.addOutcome(new Outcome(new float[] {1,1,1,1,1,1,1,1,1,4},"test5"));
+		testClass.addOutcomes(new double[][] {{4,4,3},{4,3},{4,3,4,4,2,2},{4,4,1,2,4,2.5},{4,2,1,3,3,4},{4,2,2,2,3,3,4,2},{4,2,4,1,2,1,4,4},{4,1,1,3,3,2.5},{2,4,1,4,3},{3,2,3,1,3,2,2,3},{1,2},{1}},new String[]{"Success Skill: Self Direction","Success Skills: Collaboration","Explain what happened:","Analyze multiple perspectives","Evidence to support a claim","Asking Questions","Evaluate Arguments","Critical Reading","Claims","Speaks Publicly","Human Geography","Evaluate Sources"});
 		testClass.revSort();
 		for(Outcome x: testClass.getOutcomeArray()){
 			System.out.print(x.toString()+" ");

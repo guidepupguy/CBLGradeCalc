@@ -16,9 +16,9 @@ public class Outcome extends GradeList {
 	 * @param gradesIn Float array for the grades in the outcome.
 	 * @param outcomeName String for the name of the outcome.
 	 */
-	public Outcome(float[] gradesIn, String outcomeName){
+	public Outcome(double[] gradesIn, String outcomeName){
 		grades=new ArrayList<Double>(0);
-		for(float x:gradesIn){
+		for(double x:gradesIn){
 			grades.add((double) x);
 		}
 		this.name=outcomeName;
