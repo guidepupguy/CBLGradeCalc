@@ -8,23 +8,36 @@ public class GradeCalc {
 	
 	static Scanner input=new Scanner(System.in);
 	
-	public static boolean debugmode=true;
+	public static boolean debugmode=false;
 
 	public static void main(String[] args) {
 	
-		Subject testClass=new Subject(35,65);
-		testClass.addOutcomes(new double[][] {{4,4,3},{4,3},{4,3,4,4,2,2},{4,4,1,2,4,2.5},{4,2,1,3,3,4},{4,2,2,2,3,3,4,2},{4,2,4,1,2,1,4,4},{4,1,1,3,3,2.5},{2,4,1,4,3},{3,2,3,1,3,2,2,3},{1,2},{1}},new String[]{"Success Skill: Self Direction","Success Skills: Collaboration","Explain what happened:","Analyze multiple perspectives","Evidence to support a claim","Asking Questions","Evaluate Arguments","Critical Reading","Claims","Speaks Publicly","Human Geography","Evaluate Sources"});
-		testClass.revSort();
-		for(Outcome x: testClass.getOutcomeArray()){
-			System.out.print(x.toString()+" ");
-			System.out.print(x.getUnweightedAverage()+" ");
-			System.out.print(x.getWeightedAverage(35, 65)+" ");
+		Subject econClass=new Subject("Econ",35,65);
+		econClass.addOutcomes(new double[][] {{4,4,3},{4,3},{4,3,4,4,2,2},{4,4,1,2,4,2.5},{4,2,1,3,3,4},{4,2,2,2,3,3,4,2},{4,2,4,1,2,1,4,4},{4,1,1,3,3,2.5},{2,4,1,4,3},{3,2,3,1,3,2,2,3},{1,2},{1}},new String[]{"Success Skill: Self Direction","Success Skills: Collaboration","Explain what happened:","Analyze multiple perspectives","Evidence to support a claim","Asking Questions","Evaluate Arguments","Critical Reading","Claims","Speaks Publicly","Human Geography","Evaluate Sources"});
+		econClass.revSort();
+		Subject englishClass=new Subject("English",40,60);
+		englishClass.addOutcomes(new double[][]{{2,1},{4,1,1,1},{3,2,1},{1,1,4},{3,1,1,4},{1,4,4},{1.5,4,1,4,4},{2,3,2,1,4,4,4},{4,3,1,4},{3,4,1,4},{3,4,2,4},{3,3,4,4},{3,4,4}},new String[] {"ELA.1.4 - Literary Analysis","ELA 1.0 - Content/Literary Terms","ELA 4.4 -  Complex Author's Voice","SocS.1.2 - Historical Perspectives","ELA.1.2 - Evaluate Main Ideas","ELA.7.3 - Take Notes (Organize Information)","ELA.6.1 - Group Discussions (Lead/Participate)","SS.1 Self-Direction","ELA.2.4 - Editing Conventions (Spelling/Grammar and Writing Conventions)","ELA.6.2/6.3 - Prepare and Perform","SS.2 Collaboration","ELA.2.3 - Choose the appropriate medium","ELA.5.3 - Narratives (Reflective Narratives)","SS1. Self Direction","SS2. Collaboration","ELA.1.3 - Analyze Author's Argument","ELA.1.1 - Reading Strategies","ELA.4.2 - Embedding Internal Citations","ELA.2.1 - Establish a clear driving thesis","ELA.2.2 - Develop and Support Claims","ELA.3.2 - Rhetorical claims and counterclaims ","ELA.2.5 - Discuss, respond and reflect","SocS.1.3 - Historical Sources","SocS.1.1 - Historical Context","ELA.7.1 - Inquiry Essay Writing","ELA.7.2 - Marshall Evidence from Credible Sources ","ELA.7.4 - Synthesize Research Findings"});
+		englishClass.revSort();
+		for(Outcome x: econClass.getOutcomeArray()){
+			System.out.print(x.toString()+" Unweighted:");
+			System.out.print(x.getUnweightedAverage()+" Weighted:");
+			System.out.print(x.getWeightedAverage(35, 65)+" Highest:");
 			System.out.print(x.getHighestAverage(35, 65)+"\n");
 		}
-		
 		System.out.println();
-		System.out.println(); 	
-		System.out.println(getLetter(testClass.getOutcomeAverages()));
+		System.out.println(); 
+		for(Outcome x: englishClass.getOutcomeArray()){
+			System.out.print(x.toString()+" Unweighted:");
+			System.out.print(x.getUnweightedAverage()+" Weighted:");
+			System.out.print(x.getWeightedAverage(35, 65)+" Highest:");
+			System.out.print(x.getHighestAverage(35, 65)+"\n");
+		}
+		System.out.println();
+		System.out.println();
+		System.out.println("Econ:");
+		System.out.println(getLetter(econClass.getOutcomeAverages()));
+		System.out.println("English:");
+		System.out.println(getLetter(englishClass.getOutcomeAverages()));
 //		String output=getLetter(new double[] {3.7,3.6,3.4,3.2,3.2,3.2,3.18,3.1,2.6,2.2,2.0,1.75,1.6});
 //		System.out.println(output);
 	}

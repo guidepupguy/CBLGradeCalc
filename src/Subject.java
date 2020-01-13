@@ -9,6 +9,8 @@ public class Subject {
 	
 	protected double oldGradeWeight;
 	protected double latestGradeWeight;
+	
+	protected String name;
 
 	public Subject(){
 		outcomes=new Outcome[0];
@@ -17,6 +19,13 @@ public class Subject {
 	}
 	
 	public Subject(double oldWeight, double latestWeight){
+		outcomes=new Outcome[0];
+		oldGradeWeight=oldWeight;
+		latestGradeWeight=latestWeight;
+	}
+	
+	public Subject(String name,double oldWeight, double latestWeight){
+		this.name=name;
 		outcomes=new Outcome[0];
 		oldGradeWeight=oldWeight;
 		latestGradeWeight=latestWeight;
